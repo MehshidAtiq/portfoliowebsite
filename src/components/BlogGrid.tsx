@@ -42,7 +42,7 @@ export default function BlogGrid() {
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-bold mb-12 text-center"
         >
-          Recent <span className="text-glow-purple">Thoughts</span>
+          <span className="text-glow-purple">Recent Thoughts</span>
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

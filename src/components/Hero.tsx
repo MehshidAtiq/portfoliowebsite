@@ -31,11 +31,12 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
-            Hi, I&apos;m <span className="text-white">[Your Name]</span>.
-            <br />
-            <span className="text-gray-200">Teaching machines to see, understand, and create.</span>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 leading-tight text-white">
+            Hey, I&apos;m <span className="text-white">Mehshid Atiq</span>
           </h1>
+          <p className="text-xl md:text-3xl font-light text-gray-400 mb-6">
+            Teaching machines to see, understand, and create.
+          </p>
         </motion.div>
 
         {/* Digital Twin Terminal */}

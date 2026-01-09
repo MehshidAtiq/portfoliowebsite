@@ -42,7 +42,7 @@ export default function ProjectShowcase() {
         viewport={{ once: true }}
         className="text-3xl md:text-4xl font-bold mb-12 text-center"
       >
-        Featured <span className="text-glow-purple">Projects</span>
+        <span className="text-glow-purple"> Featured Projects</span>
       </motion.h2>
 
       <div className="space-y-12 max-w-6xl mx-auto">

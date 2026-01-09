@@ -33,7 +33,7 @@ export default function TechStack() {
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-bold mb-12 text-center"
         >
-          Tools of the <span className="text-glow-purple">Trade</span>
+          <span className="text-glow-purple">Tools of the Trade</span>
         </motion.h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
