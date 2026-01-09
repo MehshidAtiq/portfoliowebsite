@@ -1,33 +1,51 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { Github } from "lucide-react";
 
 const projects = [
   {
-    title: "Neural Style Transfer Engine",
+    title: "Smart Vector Query (SVQ.ai)",
     description:
-      "A deep learning application that applies artistic styles to images using VGG19. Features real-time processing and high-resolution output generation.",
-    tags: ["Python", "PyTorch", "React", "FastAPI"],
+      "Developing an AI tool using Retrieval-Augmented Generation (RAG) with vector databases and semantic search for precise info retrieval.",
+    tags: ["Python", "PyTorch", "LLMs"],
     image: "/project-1.jpg", // Placeholder
     demoLink: "#",
     githubLink: "#",
   },
   {
-    title: "AI-Powered Code Assistant",
+    title: "Emotion Recognition System",
     description:
-      "An intelligent coding companion that suggests completions, refactors code, and explains complex logic using a fine-tuned LLM.",
-    tags: ["TypeScript", "Next.js", "OpenAI API", "Tailwind"],
+      "Multi-model system classifying 26 emotions from the EMOTIC dataset using ResNet-50, Vision Transformers, and a custom CNN. Features adaptive thresholding and dynamic weight adjustments.",
+    tags: ["Python", "PyTorch", "ResNet", "ViT", "CNN"],
     image: "/project-2.jpg", // Placeholder
     demoLink: "#",
     githubLink: "#",
   },
   {
-    title: "Autonomous Drone Navigation",
+    title: "TD3 Reinforcement Learning Agent",
     description:
-      "Computer vision system for obstacle avoidance and path planning in quadcopters. Utilizes SLAM and reinforcement learning.",
-    tags: ["C++", "ROS", "OpenCV", "Gazebo"],
+      "TD3 agent for LunarLanderContinuous-v3 with custom actor-critic networks, dual critics, and Gaussian noise-based exploration for continuous policy optimization.",
+    tags: ["Python", "OpenAI Gym", "TensorFlow", "PyTorch"],
     image: "/project-3.jpg", // Placeholder
+    demoLink: "#",
+    githubLink: "#",
+  },
+  {
+    title: "Campus Connect",
+    description:
+      "Web application for university marketplace transactions and community engagement. Features Elasticsearch, JWT security, and a scalable Docker-based backend with Minio.",
+    tags: ["Java/Spring", "Next.js", "PostgreSQL", "Docker"],
+    image: "/project-4.jpg", // Placeholder
+    demoLink: "#",
+    githubLink: "#",
+  },
+  {
+    title: "Notes Muscle",
+    description:
+      "Android app for lecture recording and note sharing focused on privacy. Built with a custom TCP protocol and multithreaded server for optimized binary file management.",
+    tags: ["Java", "Android", "JDBC", "MySQL", "Git"],
+    image: "/project-5.jpg", // Placeholder
     demoLink: "#",
     githubLink: "#",
   },
@@ -84,13 +102,6 @@ export default function ProjectShowcase() {
               </p>
 
               <div className="flex gap-4 pt-4">
-                <a
-                  href={project.demoLink}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/10"
-                >
-                  <ExternalLink size={18} />
-                  <span>Live Demo</span>
-                </a>
                 <a
                   href={project.githubLink}
                   className="flex items-center gap-2 px-4 py-2 rounded-lg bg-transparent hover:bg-white/5 text-gray-300 hover:text-white transition-colors border border-white/10"
