@@ -78,17 +78,21 @@ const skillCategories = [
 
 export default function TechStack() {
   return (
-    <section className="py-20 px-4 md:px-12 bg-black/20">
+    <section id="skills" className="py-20 px-4 md:px-12 bg-black/20">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold mb-4"
-          >
-             <span className="text-glow-purple">Core Expertise</span>
-          </motion.h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16 space-y-4"
+        >
+          <div className="space-y-4 mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold">
+              <span className="text-white">Core </span>
+              <span className="text-glow-purple">Expertise</span>
+            </h2>
+            <div className="w-20 h-1 bg-glow-purple mx-auto rounded-full" />
+          </div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -98,7 +102,7 @@ export default function TechStack() {
           >
             Professional proficiency across the AI/ML and software engineering landscape.
           </motion.p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (

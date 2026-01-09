@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section className="min-h-[80vh] flex items-center justify-center py-12 md:py-20 px-4 md:px-12">
+    <section id="hero" className="min-h-[80vh] flex items-center justify-center py-12 md:py-20 px-4 md:px-12">
       <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-12">
         
         {/* Left: Text Content */}

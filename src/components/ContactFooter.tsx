@@ -14,11 +14,14 @@ export default function ContactFooter() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="space-y-4"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Let&apos;s <span className="text-glow-purple">Connect</span>
+            <h2 className="text-3xl md:text-5xl font-bold">
+              <span className="text-white">Let&apos;s </span>
+              <span className="text-glow-purple">Connect</span>
             </h2>
-            <p className="text-gray-300 text-lg max-w-md">
+            <div className="w-20 h-1 bg-glow-purple rounded-full" />
+            <p className="text-gray-300 text-lg max-w-md pt-4">
               I&apos;m currently open to new opportunities and collaborations. 
               Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
             </p>

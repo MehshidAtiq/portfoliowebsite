@@ -1,13 +1,14 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Home,
   User,
   Briefcase,
-  FileText,
+  Code,
+  Cpu,
   PenTool,
   Mail,
   ChevronLeft,
@@ -19,12 +20,13 @@ import {
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { name: "Home", href: "/", icon: Home },
-  { name: "About Me", href: "/about", icon: User },
-  { name: "Projects", href: "/projects", icon: Briefcase },
-  { name: "Experience (Resume)", href: "/resume", icon: FileText },
-  { name: "Blog", href: "/blog", icon: PenTool },
-  { name: "Contact", href: "/contact", icon: Mail },
+  { name: "Home", href: "#hero", icon: Home },
+  { name: "About Me", href: "#about", icon: User },
+  { name: "Experience", href: "#experience", icon: Briefcase },
+  { name: "Projects", href: "#projects", icon: Code },
+  { name: "Core Expertise", href: "#skills", icon: Cpu },
+  { name: "Blog", href: "#blog", icon: PenTool },
+  { name: "Contact", href: "#contact", icon: Mail },
 ];
 
 interface SidebarProps {
@@ -33,7 +35,43 @@ interface SidebarProps {
 }
 
 export function Sidebar({ isCollapsed, toggleCollapse }: SidebarProps) {
-  const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState("hero");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 150; // Offset for better triggering
+
+      for (const item of navItems) {
+        const sectionId = item.href.substring(1);
+        const element = document.getElementById(sectionId);
+        
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const sectionId = href.substring(1);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <motion.aside
@@ -55,11 +93,18 @@ export function Sidebar({ isCollapsed, toggleCollapse }: SidebarProps) {
       </button>
 
       {/* Profile Section */}
-      <div className="flex flex-col items-center py-8 overflow-hidden">
+      <div className="flex flex-col items-center py-8 overflow-hidden shrink-0">
         <div className="relative">
-          <div className="w-16 h-16 rounded-full bg-gray-300 border-2 border-glow-purple shadow-[0_0_15px_rgba(168,85,247,0.5)] overflow-hidden">
-             {/* Placeholder for Profile Image */}
-             <div className="w-full h-full bg-gradient-to-br from-purple-900 to-black" />
+          <div 
+            className={cn(
+              "rounded-full bg-gray-300 border-2 border-glow-purple shadow-[0_0_15px_rgba(168,85,247,0.5)] overflow-hidden transition-all duration-300 ease-in-out",
+              isCollapsed ? "w-16 h-16" : "w-48 h-48"
+            )}
+          >
+             {/* Profile Image */}
+             <div className="w-full h-full bg-gradient-to-br from-purple-900 to-black">
+                <img src="/newimage.jpg" alt="Profile" className="w-full h-full object-cover" />
+             </div>
           </div>
         </div>
         
@@ -71,7 +116,7 @@ export function Sidebar({ isCollapsed, toggleCollapse }: SidebarProps) {
               exit={{ opacity: 0, height: 0 }}
               className="mt-4 text-center"
             >
-              <h2 className="text-xl font-bold text-white">[Your Name]</h2>
+              <h2 className="text-xl font-bold text-white">Mehshid Atiq</h2>
               <p className="text-sm text-glow-purple font-medium">AI & ML Engineer</p>
             </motion.div>
           )}
@@ -81,13 +126,16 @@ export function Sidebar({ isCollapsed, toggleCollapse }: SidebarProps) {
       {/* Navigation Links */}
       <nav className="flex-1 px-4 py-4 space-y-2 overflow-y-auto overflow-x-hidden">
         {navItems.map((item) => {
-          const isActive = pathname === item.href;
+          const sectionId = item.href.substring(1);
+          const isActive = activeSection === sectionId;
+          
           return (
-            <Link
+            <a
               key={item.name}
               href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
               className={cn(
-                "flex items-center px-3 py-3 rounded-xl transition-all duration-300 group relative",
+                "flex items-center px-3 py-3 rounded-xl transition-all duration-300 group relative cursor-pointer",
                 isActive
                   ? "bg-gradient-to-r from-glow-purple/20 to-transparent border-l-4 border-glow-purple text-white"
                   : "hover:bg-white/5 hover:text-white text-gray-400"
@@ -113,7 +161,7 @@ export function Sidebar({ isCollapsed, toggleCollapse }: SidebarProps) {
                   </motion.span>
                 )}
               </AnimatePresence>
-            </Link>
+            </a>
           );
         })}
       </nav>

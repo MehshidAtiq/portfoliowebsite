@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 
 const projects = [
   {
@@ -10,7 +10,7 @@ const projects = [
       "Developing an AI tool using Retrieval-Augmented Generation (RAG) with vector databases and semantic search for precise info retrieval.",
     tags: ["Python", "PyTorch", "LLMs"],
     image: "/project-1.jpg", // Placeholder
-    demoLink: "#",
+    demoLink: "https://svq-ai.pages.dev",
     githubLink: "#",
   },
   {
@@ -54,14 +54,18 @@ const projects = [
 export default function ProjectShowcase() {
   return (
     <section className="py-20 px-4 md:px-12" id="projects">
-      <motion.h2
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-bold mb-12 text-center"
+        className="text-center mb-12 space-y-4"
       >
-        <span className="text-glow-purple"> Featured Projects</span>
-      </motion.h2>
+        <h2 className="text-3xl md:text-5xl font-bold">
+          <span className="text-white">Featured </span>
+          <span className="text-glow-purple">Projects</span>
+        </h2>
+        <div className="w-20 h-1 bg-glow-purple mx-auto rounded-full" />
+      </motion.div>
 
       <div className="space-y-12 max-w-6xl mx-auto">
         {projects.map((project, index) => (
@@ -102,6 +106,17 @@ export default function ProjectShowcase() {
               </p>
 
               <div className="flex gap-4 pt-4">
+                {project.demoLink && project.demoLink !== "#" && (
+                  <a
+                    href={project.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-glow-purple text-white hover:bg-glow-purple/90 transition-colors shadow-lg shadow-purple-500/20"
+                  >
+                    <ExternalLink size={18} />
+                    <span>Live Demo</span>
+                  </a>
+                )}
                 <a
                   href={project.githubLink}
                   className="flex items-center gap-2 px-4 py-2 rounded-lg bg-transparent hover:bg-white/5 text-gray-300 hover:text-white transition-colors border border-white/10"
