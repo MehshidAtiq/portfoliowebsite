@@ -3,74 +3,46 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-export default function Hero() {
-  const [terminalText, setTerminalText] = useState("");
-  const fullText = "> Initializing digital twin...\n> Ready.\n> Ask me anything about my experience with LLMs.";
-
-  useEffect(() => {
-    let i = 0;
-    const timer = setInterval(() => {
-      if (i < fullText.length) {
-        setTerminalText((prev) => prev + fullText.charAt(i));
-        i++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 30);
-
-    return () => clearInterval(timer);
-  }, []);
-
+const Hero = () => {
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center py-12 md:py-20 px-4 md:px-12">
-      <div className="max-w-4xl w-full space-y-12">
+    <section className="min-h-[80vh] flex items-center justify-center py-12 md:py-20 px-4 md:px-12">
+      <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-12">
         
-        {/* Heading */}
+        {/* Left: Text Content */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
+          className="flex-1 space-y-6"
         >
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 leading-tight text-white">
-            Hey, I&apos;m <span className="text-white">Mehshid Atiq</span>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight text-white">
+            Hey, I&apos;m <span className="text-glow-purple">Mehshid Atiq</span>
           </h1>
-          <p className="text-xl md:text-3xl font-light text-gray-400 mb-6">
+          <p className="text-xl md:text-3xl font-light text-gray-400 max-w-2xl">
             Teaching machines to see, understand, and create.
           </p>
         </motion.div>
 
-        {/* Digital Twin Terminal */}
+        {/* Right: Personal Photo */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="w-full bg-[#0a0514]/60 border border-white/10 rounded-xl overflow-hidden shadow-2xl backdrop-blur-md"
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="flex-1 flex justify-center md:justify-end"
         >
-          <div className="flex flex-col md:flex-row items-stretch min-h-[160px]">
-            {/* Terminal Text Area */}
-            <div className="flex-1 p-6 md:p-8 font-mono text-sm md:text-base text-gray-300 whitespace-pre-line relative">
-              {terminalText}
-              <motion.span
-                animate={{ opacity: [0, 1, 0] }}
-                transition={{ repeat: Infinity, duration: 0.8 }}
-                className="inline-block w-2 h-4 bg-gray-400 ml-1 align-middle"
-              />
-            </div>
-
-            {/* CTA Button Area */}
-            <div className="flex items-center justify-center p-6 md:p-8 md:border-l border-white/5 bg-white/5 md:bg-transparent">
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(168,85,247,0.5)" }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-glow-purple text-white rounded-lg font-medium shadow-[0_0_15px_rgba(168,85,247,0.3)] transition-all duration-300 whitespace-nowrap"
-              >
-                Start Chat with my Resume
-              </motion.button>
-            </div>
+          <div className="relative w-64 h-80 md:w-[22rem] md:h-[28rem] rounded-[50%] overflow-hidden border-4 border-white/10 shadow-2xl group">
+             {/* Note: Image served from public/newimage.jpg */}
+            <img 
+              src="/newimage.jpg" 
+              alt="Mehshid Atiq" 
+              className="w-full h-full object-cover transition-all duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
           </div>
         </motion.div>
 
       </div>
     </section>
   );
-}
+};
+export default Hero;

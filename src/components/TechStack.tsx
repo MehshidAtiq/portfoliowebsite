@@ -3,47 +3,130 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
-  Code2,
-  Database,
-  Globe,
-  Terminal,
-  Layers,
   Brain,
+  Cpu,
+  Globe,
+  Database,
   Cloud,
+  Smartphone,
+  Server,
+  Layout,
+  Settings
 } from "lucide-react";
 
-const skills = [
-  { name: "Python", icon: Code2 },
-  { name: "PyTorch", icon: Brain },
-  { name: "TensorFlow", icon: Layers },
-  { name: "TypeScript", icon: Code2 },
-  { name: "Next.js", icon: Globe },
-  { name: "PostgreSQL", icon: Database },
-  { name: "Docker", icon: Cloud },
-  { name: "Linux", icon: Terminal },
+const skillCategories = [
+  {
+    title: "AI & Machine Learning",
+    icon: Brain,
+    tags: [
+      "Python",
+      "PyTorch",
+      "TensorFlow",
+      "LLMs",
+      "RAG",
+      "CNNs",
+      "Vision Transformers",
+    ],
+  },
+  {
+    title: "Data Engineering",
+    icon: Server,
+    tags: [
+      "Python",
+      "BigQuery",
+      "Pub/Sub",
+      "Cloud Functions",
+      "ETL Pipelines",
+      "Tableau",
+    ],
+  },
+  {
+    title: "Full-Stack Web",
+    icon: Layout,
+    tags: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Java (Spring)",
+      "Yii2",
+      "REST APIs",
+      "JWT",
+    ],
+  },
+  {
+    title: "Data & Vector",
+    icon: Database,
+    tags: [
+      "PostgreSQL",
+      "MySQL",
+      "Elasticsearch",
+      "Vector Databases",
+      "Minio",
+    ],
+  },
+  {
+    title: "Cloud & DevOps",
+    icon: Cloud,
+    tags: ["Docker", "GCP", "CI/CD", "Containerized Backends", "Cloud Functions"],
+  },
+  {
+    title: "Mobile & Systems",
+    icon: Smartphone,
+    tags: ["Android (Java)", "JDBC", "TCP/IP", "Multithreading", "C", "C++"],
+  },
 ];
 
 export default function TechStack() {
   return (
     <section className="py-20 px-4 md:px-12 bg-black/20">
       <div className="max-w-6xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold mb-12 text-center"
-        >
-          <span className="text-glow-purple">Tools of the Trade</span>
-        </motion.h2>
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-bold mb-4"
+          >
+             <span className="text-glow-purple">Core Expertise</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-gray-400 text-lg max-w-2xl mx-auto"
+          >
+            Professional proficiency across the AI/ML and software engineering landscape.
+          </motion.p>
+        </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {skills.map((skill, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillCategories.map((category, index) => (
             <SpotlightCard key={index}>
-              <div className="flex flex-col items-center gap-4 p-6">
-                <skill.icon size={40} className="text-gray-300 group-hover:text-glow-purple transition-colors duration-300" />
-                <span className="font-medium text-gray-300 group-hover:text-white transition-colors duration-300">
-                  {skill.name}
-                </span>
+              <div className="flex flex-col h-full p-6 md:p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  {/* Icon Box */}
+                  <div className="w-12 h-12 shrink-0 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-glow-purple/20 transition-colors duration-300">
+                    <category.icon size={24} className="text-gray-300 group-hover:text-glow-purple transition-colors duration-300" />
+                  </div>
+                  
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-white group-hover:text-glow-purple transition-colors duration-300">
+                    {category.title}
+                  </h3>
+                </div>
+  
+                {/* Tags */}
+                <div className="flex flex-wrap justify-center gap-2 mt-auto">
+                  {category.tags.map((tag) => (
+                    <span 
+                      key={tag}
+                      className="px-3 py-1 text-sm font-medium rounded-md bg-white/5 text-gray-400 border border-purple-500/50 group-hover:border-purple-400 group-hover:text-gray-200 transition-colors duration-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </SpotlightCard>
           ))}
