@@ -31,12 +31,12 @@ export default function LayoutWrapper({
           marginLeft: isSidebarCollapsed ? "80px" : "280px",
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="hidden md:block min-h-screen p-8"
+        className="relative z-10 isolate hidden min-h-screen p-8 md:block"
       >
         {children}
       </motion.main>
 
-      <main className="md:hidden pt-20 px-4 pb-8 min-h-screen">
+      <main className="relative z-10 isolate min-h-screen px-4 pt-20 pb-8 md:hidden">
         {children}
       </main>
       

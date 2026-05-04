@@ -13,6 +13,7 @@ import {
   Layout,
   Settings
 } from "lucide-react";
+import SpotlightCard from "./ui/SpotlightCard";
 
 const skillCategories = [
   {
@@ -78,7 +79,7 @@ const skillCategories = [
 
 export default function TechStack() {
   return (
-    <section id="skills" className="py-20 px-4 md:px-12 bg-black/20">
+    <section id="skills" className="py-20 px-4 md:px-12 ">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -137,39 +138,5 @@ export default function TechStack() {
         </div>
       </div>
     </section>
-  );
-}
-
-function SpotlightCard({ children }: { children: React.ReactNode }) {
-  const divRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!divRef.current) return;
-
-    const rect = divRef.current.getBoundingClientRect();
-    setPosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
-
-  return (
-    <motion.div
-      ref={divRef}
-      onMouseMove={handleMouseMove}
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      className="relative rounded-xl border border-white/10 bg-white/5 overflow-hidden group"
-    >
-      <div
-        className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 group-hover:opacity-100"
-        style={{
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(168,85,247,0.15), transparent 40%)`,
-        }}
-      />
-      <div className="relative h-full">{children}</div>
-    </motion.div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { GraduationCap, Briefcase } from "lucide-react";
+import SpotlightCard from "./ui/SpotlightCard";
 
 export default function AboutMe() {
   return (
@@ -36,12 +37,7 @@ export default function AboutMe() {
         {/* Education & Experience Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Education Card */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="glass-card p-8 border border-white/10 rounded-2xl bg-[#0F111A]"
-          >
+          <SpotlightCard className="p-8">
             <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
               <GraduationCap className="text-glow-purple" />
               Education
@@ -60,15 +56,10 @@ export default function AboutMe() {
                 <p className="text-gray-500 text-sm">Aug. 2021 - Jun. 2025</p>
               </div>
             </div>
-          </motion.div>
+          </SpotlightCard>
 
           {/* Compact Experience Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="glass-card p-8 border border-white/10 rounded-2xl bg-[#0F111A]"
-          >
+          <SpotlightCard className="p-8">
             <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
               <Briefcase className="text-glow-purple" />
               Experience
@@ -87,7 +78,7 @@ export default function AboutMe() {
                 <p className="text-gray-500 text-sm">Jul. – Sep. 2023</p>
               </div>
             </div>
-          </motion.div>
+          </SpotlightCard>
         </div>
       </div>
     </section>

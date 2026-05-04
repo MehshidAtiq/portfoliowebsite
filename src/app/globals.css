@@ -5,7 +5,7 @@
   --color-deep-purple: #0a0514;
   --color-card-purple: #1a0b2e;
   --color-glow-purple: #a855f7;
-  
+
   --animate-glow-pulse: glow-pulse 2s infinite;
   --animate-float: float 3s ease-in-out infinite;
 
@@ -13,7 +13,7 @@
     0%, 100% { box-shadow: 0 0 5px #a855f7, 0 0 10px #a855f7; }
     50% { box-shadow: 0 0 20px #a855f7, 0 0 30px #a855f7; }
   }
-  
+
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
@@ -26,7 +26,7 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.05);
   }
-  
+
   .glass-card {
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -38,10 +38,5 @@
 body {
   background-color: var(--color-deep-purple);
   color: white;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }

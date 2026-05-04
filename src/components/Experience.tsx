@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Briefcase, Calendar } from "lucide-react";
+import SpotlightCard from "./ui/SpotlightCard";
 
 const experiences = [
   {
@@ -58,7 +59,7 @@ export default function Experience() {
               {/* Dot on timeline */}
               <div className="absolute -left-[5px] top-2 w-3 h-3 rounded-full bg-glow-purple box-content border-4 border-[#0a0514]" />
               
-              <div className="glass-card p-6 md:p-8 relative">
+              <SpotlightCard className="p-6 md:p-8">
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
                   <div>
                     <h3 className="text-xl font-bold text-white">{exp.role}</h3>
@@ -78,7 +79,7 @@ export default function Experience() {
                     <li key={i}>{item}</li>
                   ))}
                 </ul>
-              </div>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>
