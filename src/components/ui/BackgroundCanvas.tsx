@@ -83,7 +83,8 @@ export default function BackgroundCanvas() {
           number: {
             density: {
               enable: true,
-              area: 800,
+              height: 800,
+              width: 800,
             },
             value: 80,
           },

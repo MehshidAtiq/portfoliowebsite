@@ -1,5 +1,5 @@
 import { google } from "@ai-sdk/google";
-import { streamText } from "ai";
+import { convertToModelMessages, streamText } from "ai";
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
@@ -37,8 +37,8 @@ export async function POST(req: Request) {
     
     Tone: Professional, enthusiastic, and slightly futuristic/cyberpunk.
     Keep answers concise and relevant.`,
-    messages,
+    messages: await convertToModelMessages(messages),
   });
 
-  return result.toDataStreamResponse();
+  return result.toUIMessageStreamResponse();
 }

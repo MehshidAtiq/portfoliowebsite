@@ -8,8 +8,10 @@ import { cn } from "@/lib/utils";
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat();
+  const [input, setInput] = useState("");
+  const { messages, sendMessage, status } = useChat();
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const isLoading = status === "submitted" || status === "streaming";
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -18,6 +20,22 @@ export default function Chatbot() {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const trimmedInput = input.trim();
+
+    if (!trimmedInput || isLoading) return;
+
+    sendMessage({ text: trimmedInput });
+    setInput("");
+  };
+
+  const getMessageText = (message: (typeof messages)[number]) =>
+    message.parts
+      .filter((part) => part.type === "text")
+      .map((part) => part.text)
+      .join("");
 
   return (
     <>
@@ -82,7 +100,7 @@ export default function Chatbot() {
                         : "bg-white/5 text-gray-200 border border-white/10 rounded-tl-none"
                     )}
                   >
-                    {m.content}
+                    {getMessageText(m)}
                   </div>
                 </div>
               ))}
@@ -109,7 +127,7 @@ export default function Chatbot() {
               <div className="relative">
                 <input
                   value={input}
-                  onChange={handleInputChange}
+                  onChange={(event) => setInput(event.target.value)}
                   placeholder="Ask a question..."
                   className="w-full pl-4 pr-10 py-3 rounded-xl bg-black/20 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus:border-glow-purple focus:ring-1 focus:ring-glow-purple transition-all"
                 />
