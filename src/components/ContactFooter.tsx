@@ -29,10 +29,9 @@ export default function ContactFooter() {
 
           <div className="flex gap-4">
             {[
-              { icon: Github, href: "#" },
-              { icon: Linkedin, href: "#" },
-              { icon: Twitter, href: "#" },
-              { icon: Mail, href: "mailto:hello@example.com" },
+              { icon: Github, href: "https://github.com/MehshidAtiq" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/mehshid-atiq/" },
+              { icon: Mail, href: "mailto:mehshidatq@gmail.com" },
             ].map((social, index) => (
               <motion.a
                 key={index}
@@ -64,7 +63,7 @@ export default function ContactFooter() {
                   type="text"
                   id="name"
                   className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:border-glow-purple focus:ring-1 focus:ring-glow-purple transition-colors"
-                  placeholder="John Doe"
+                  placeholder="Your Name..."
                 />
               </div>
               <div className="space-y-2">
@@ -73,7 +72,7 @@ export default function ContactFooter() {
                   type="email"
                   id="email"
                   className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:border-glow-purple focus:ring-1 focus:ring-glow-purple transition-colors"
-                  placeholder="john@example.com"
+                  placeholder="name@example.com"
                 />
               </div>
             </div>

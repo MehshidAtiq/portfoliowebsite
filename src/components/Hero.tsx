@@ -38,7 +38,7 @@ const Hero = () => {
           Hey, I&apos;m <span className="text-glow-purple">Mehshid Atiq</span>
         </h1>
         <p className="mx-auto max-w-3xl text-xl font-light text-gray-300 md:text-3xl">
-          Teaching machines to see, understand, and create.
+          Minimizing loss. Maximizing impact.
         </p>
       </motion.div>
     </section>

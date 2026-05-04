@@ -28,8 +28,7 @@ export default function AboutMe() {
               <span className="text-glow-purple"></span> 
             </h3>
             <p className="text-lg text-gray-300 leading-relaxed">
-              Software engineering student with a passion for creating innovative solutions. Specializing in full-stack
-              development, I combine technical expertise with creative problem-solving to build user-centric applications.
+              I am an AI/ML Engineer who combines full-stack software development with advanced machine learning. Leveraging expertise across LLMs, multimodal AI, computer vision, and human-centric systems, I build scalable, context-aware applications. At my core, I design intelligent software engineered to minimize loss and maximize impact.
             </p>
           </div>
         </motion.div>

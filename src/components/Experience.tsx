@@ -6,6 +6,16 @@ import SpotlightCard from "./ui/SpotlightCard";
 
 const experiences = [
   {
+    company: "Bilkent University",
+    role: "Research Assistant",
+    date: "Jul. – Oct. 2025",
+    description: [
+      "Built a multimodal emotion-recognition pipeline for 26-class EMOTIC classification using facial and scene context.",
+      "Benchmarked ResNet-50, ViT, and CNN-based models to compare architecture performance across visual emotion tasks.",
+      "Improved F1/mAP under class imbalance through loss weighting, threshold tuning, and ablation-driven optimization.",
+    ],
+  },
+  {
     company: "Smarnovative Labs",
     role: "Software Developer Intern",
     date: "Jul. – Sep. 2024",

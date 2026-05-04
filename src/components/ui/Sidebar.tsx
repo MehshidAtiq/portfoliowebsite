@@ -168,9 +168,9 @@ export function Sidebar({ isCollapsed, toggleCollapse }: SidebarProps) {
 
       {/* Social Icons Footer */}
       <div className={cn("p-6 border-t border-white/10 flex items-center", isCollapsed ? "justify-center flex-col gap-4" : "justify-center gap-6")}>
-        <a href="#" className="text-gray-400 hover:text-white transition-colors"><Github size={20} /></a>
-        <a href="#" className="text-gray-400 hover:text-white transition-colors"><Linkedin size={20} /></a>
-        <a href="#" className="text-gray-400 hover:text-white transition-colors"><Twitter size={20} /></a>
+        <a href="" className="text-gray-400 hover:text-white transition-colors"><Github size={20} /></a>
+        <a href="https://www.linkedin.com/in/mehshid-atiq/" className="text-gray-400 hover:text-white transition-colors"><Linkedin size={20} /></a>
+        <a href="mailto:mehshidatq@gmail.com" className="text-gray-400 hover:text-white transition-colors"><Mail size={20} /></a>
       </div>
     </motion.aside>
   );

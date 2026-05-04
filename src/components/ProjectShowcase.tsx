@@ -6,13 +6,20 @@ import SpotlightCard from "./ui/SpotlightCard";
 
 const projects = [
   {
-    title: "Smart Vector Query (SVQ.ai)",
+    title: "OpsPilot",
     description:
-      "Developing an AI tool using Retrieval-Augmented Generation (RAG) with vector databases and semantic search for precise info retrieval.",
-    tags: ["Python", "PyTorch", "LLMs"],
-    image: "/project-1.jpg", // Placeholder
-    demoLink: "https://svq-ai.pages.dev",
-    githubLink: "#",
+        "AI operations copilot for German IT and consulting SMEs that automates admin-heavy work through modular skills. It uses company knowledge to process emails, meetings, and documents, then proposes follow-ups, draft replies, tasks, and next steps while humans approve every sensitive action.",
+      tags: [
+      "Agentic AI",
+      "Human-in-the-Loop",
+      "RAG",
+      "Skill Automation",
+      "Audit Logging",
+      "GDPR-Aware",
+    ],
+    image: "/project-6.jpg", // Placeholder
+    demoLink: "#",
+    githubLink: "https://github.com/MehshidAtiq/OpsPilot",
   },
   {
     title: "Emotion Recognition System",
@@ -21,7 +28,17 @@ const projects = [
     tags: ["Python", "PyTorch", "ResNet", "ViT", "CNN"],
     image: "/project-2.jpg", // Placeholder
     demoLink: "#",
+    githubLink: "https://github.com/MehshidAtiq/EMOTIC_ensemble",
+  },
+  {
+    title: "Smart Vector Query (SVQ.ai)",
+    description:
+      "Developing an AI tool using Retrieval-Augmented Generation (RAG) with vector databases and semantic search for precise info retrieval.",
+    tags: ["Python", "PyTorch", "LLMs"],
+    image: "/project-1.jpg", // Placeholder
+    demoLink: "https://svq-ai.pages.dev",
     githubLink: "#",
+    hideGithub: true,
   },
   {
     title: "TD3 Reinforcement Learning Agent",
@@ -31,6 +48,7 @@ const projects = [
     image: "/project-3.jpg", // Placeholder
     demoLink: "#",
     githubLink: "#",
+    hideGithub: true,
   },
   {
     title: "Campus Connect",
@@ -40,6 +58,7 @@ const projects = [
     image: "/project-4.jpg", // Placeholder
     demoLink: "#",
     githubLink: "#",
+    hideGithub: true,
   },
   {
     title: "Notes Muscle",
@@ -49,6 +68,7 @@ const projects = [
     image: "/project-5.jpg", // Placeholder
     demoLink: "#",
     githubLink: "#",
+    hideGithub: true,
   },
 ];
 
@@ -119,13 +139,15 @@ export default function ProjectShowcase() {
                       <span>Live Demo</span>
                     </a>
                   )}
-                  <a
-                    href={project.githubLink}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-transparent hover:bg-white/5 text-gray-300 hover:text-white transition-colors border border-white/10"
-                  >
-                    <Github size={18} />
-                    <span>GitHub</span>
-                  </a>
+                  {!project.hideGithub && (
+                    <a
+                      href={project.githubLink}
+                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-transparent hover:bg-white/5 text-gray-300 hover:text-white transition-colors border border-white/10"
+                    >
+                      <Github size={18} />
+                      <span>GitHub</span>
+                    </a>
+                  )}
                 </div>
                 </div>
               </div>
