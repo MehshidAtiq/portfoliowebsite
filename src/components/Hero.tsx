@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import LightPillar from "./LightPillar";
+import VrmAvatarStage from "./VrmAvatarStage";
 
 const Hero = () => {
   return (
@@ -27,6 +28,7 @@ const Hero = () => {
         />
       </div>
       <div className="pointer-events-none fixed inset-0 -z-10 h-[100dvh] w-full bg-[radial-gradient(circle_at_center,rgba(10,5,20,0.16),rgba(10,5,20,0.62)_58%,rgba(10,5,20,0.94)_100%)]" />
+      <VrmAvatarStage />
 
       <motion.div
         initial={{ opacity: 0, y: 24 }}
