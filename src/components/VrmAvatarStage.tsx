@@ -8,7 +8,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { VRMLoaderPlugin, VRMUtils, type VRM } from "@pixiv/three-vrm";
 import { retargetMixamoAnimation } from "@/lib/mixamoVrmRetarget";
 
-const VRM_MODEL_URL = "/models/newimage.vrm";
+const VRM_MODEL_URL = "/models/newestAvatar.vrm";
 type AvatarWrapperOffset = {
   x: number;
   y: number;
